@@ -28,11 +28,11 @@ body,html{
   height: 30px;
   width: 100px;
 }
-.add-first{
+/* .add-first{
   color: #ccc;
   padding-left: 15px;
   font-size: 12px;
-}
+} */
 .add-icon{
   display: flex;
   align-items: center;
@@ -138,15 +138,6 @@ body,html{
     color: #cccccc;
 }
 
-.nav-line-2 {
-    font-size: 14px;
-    font-weight: 700;
-}
-.menu{
-    position: relative;
-    width: 200px;
-    margin: 100px;
-}
 
 #account-link{
     text-decoration: none;
@@ -161,8 +152,9 @@ body,html{
     padding: 20px;
 
     position: absolute;
-    top: 40px;
-    left: 0;
+    top: 40px; 
+     /* left: 0;  */
+     right: 10px;
 
     display: none;
 
