@@ -4,6 +4,9 @@ body,html{
     box-sizing: border-box;
     font-family: "Amazon Amber", Arial, sans-serif;
 }
+body{
+  /* overflow-x: hi; */
+}
 .navbar{
   height: 60px;
   background-color: #131921;
@@ -198,31 +201,76 @@ body,html{
 
 /* nav bar 02 styel */
 
-/* Top Bar */
-.menu-bar{
+/* ==========================================================================
+   Top & Bottom Navigation 
+   ========================================================================== */
+
+/* Top Bar & General Menu Bar Utility */
+.menu-bar {
     display: flex;
     align-items: center;
-    gap: 10px;
-    background-color: #131921;
+    gap: 8px;
+    background-color: #000000;
     color: white;
     padding: 15px;
     cursor: pointer;
-    width: fit-content;
+    width: 100%;
+    box-sizing: border-box; /* Prevents padding from adding to width */
 }
 
 /* Icon */
-.menu-icon i{
-    font-size: 22px;
+.menu-icon i, .menu-bar i {
+    font-size: 20px;
 }
 
 /* Text */
-.menu-text{
+.menu-text, .menu-bar p {
     font-size: 18px;
     font-weight: bold;
+    margin: 0; /* Clears default paragraph margins */
 }
 
-/* Sidebar */
-.sidebar{
+/* Parent Bottom Nav */
+.nav-bottom {
+    display: flex;
+    align-items: center;
+    background-color: #232f3e;
+    padding: 12px 20px;
+    gap: 25px;
+    flex-wrap: wrap; /* Allows links to drop down on tablet screens instead of breaking */
+}
+
+/* Links Container */
+.nav-02-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap; 
+}
+
+/* Anchor Tags */
+.nav-02-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 5px 8px;
+    border: 1px solid transparent;
+    transition: 0.3s;
+    white-space: nowrap; /* Keeps link text on one line */
+}
+
+/* Hover */
+.nav-02-links a:hover {
+    border: 1px solid white;
+    border-radius: 2px;
+}
+
+
+/* ==========================================================================
+   Sidebar Styles (Desktop First Default)
+   ========================================================================== */
+
+.sidebar {
     width: 350px;
     height: 100vh;
     background-color: white;
@@ -230,86 +278,88 @@ body,html{
     top: 0;
     left: -350px;
     overflow-y: auto;
-    transition: 0.4s;
-    box-shadow: 0px 0px 10px gray;
+    transition: transform 0.4s ease; /* Using transform for smoother mobile performance */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000; /* Ensures it stays on top of all content */
 }
 
 /* Active Sidebar */
-.sidebar.active{
+.sidebar.active {
     left: 0;
 }
 
-/* Top */
-.sidebar-top{
+/* Top Branding Area */
+.sidebar-top {
     background-color: #232f3e;
     color: white;
     padding: 20px;
 }
 
 /* Section */
-.sidebar-section{
+.sidebar-section {
     padding: 20px;
 }
 
-.sidebar-section h3{
+.sidebar-section h3 {
     margin-bottom: 20px;
+    font-size: 18px;
+    color: #111;
 }
 
 /* Items */
-.item{
+.item {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
     cursor: pointer;
-}
-/* Parent */
-.nav-bottom{
-    display: flex;
-    align-items: center;
-    background-color: #232f3e;
-    padding: 12px 20px;
-    gap: 25px;
+    color: #444;
+    transition: color 0.2s;
 }
 
-/* All Div */
-.menu-bar{
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: white;
-    cursor: pointer;
+.item:hover {
+    color: #111;
 }
 
-.menu-bar i{
-    font-size: 20px;
-}
 
-.menu-bar p{
-    font-size: 18px;
-    font-weight: bold;
-}
+/* ==========================================================================
+   Responsive Media Queries (Mobile & Tablets)
+   ========================================================================== */
 
-/* Links Div */
-.nav-02-links{
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
+@media screen and (max-width: 576px) {
+    /* Sidebar adjustments for small mobile screens */
+    .sidebar {
+        width: 280px;      /* Slightly narrower so it doesn't swallow the whole screen */
+        left: -280px;      /* Matches the new width for hiding */
+    }
+    
+    .sidebar.active {
+        left: 0;
+    }
 
-/* Anchor Tags */
-.nav--02-links a{
-    text-decoration: none;
-    color: white;
-    font-size: 15px;
-    padding: 5px 8px;
-    border: 1px solid transparent;
-    transition: 0.3s;
-}
+    /* Navigation adjustments */
+    .nav-bottom {
+        padding: 10px 15px;
+        gap: 15px;
+    }
 
-/* Hover */
-.nav-02-links a:hover{
-    border: 1px solid white;
+    /* Optional: If you have too many links, this makes them horizontally scrollable on mobile */
+    .nav-02-links {
+        gap: 5px;
+        overflow-x: auto;
+        white-space: nowrap;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    }
+    
+    .nav-02-links::-webkit-scrollbar {
+        display: none; /* Hides scrollbar for a cleaner look */
+    }
+
+    .nav-02-links a {
+        font-size: 14px;
+        padding: 6px 8px;
+    }
 }
 
 
@@ -542,3 +592,6 @@ body,html{
   }
 
 }
+
+/* navbar 02 responsive */
+
