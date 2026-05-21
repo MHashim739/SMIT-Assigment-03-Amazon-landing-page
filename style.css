@@ -4,9 +4,6 @@ body,html{
     box-sizing: border-box;
     font-family: "Amazon Amber", Arial, sans-serif;
 }
-body{
-  /* overflow-x: hi; */
-}
 .navbar{
   height: 60px;
   background-color: #131921;
@@ -321,44 +318,177 @@ body{
     color: #111;
 }
 
+/* section 3 slider styel */
 
-/* ==========================================================================
-   Responsive Media Queries (Mobile & Tablets)
-   ========================================================================== */
+.landing-container {
+    max-width: 2000px;
+    width: 100%;
+}
+.slider{
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
 
-@media screen and (max-width: 576px) {
-    /* Sidebar adjustments for small mobile screens */
-    .sidebar {
-        width: 280px;      /* Slightly narrower so it doesn't swallow the whole screen */
-        left: -280px;      /* Matches the new width for hiding */
-    }
-    
-    .sidebar.active {
-        left: 0;
-    }
+.slides{
+    display: flex;
+    top: 20%;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
 
-    /* Navigation adjustments */
-    .nav-bottom {
-        padding: 10px 15px;
-        gap: 15px;
-    }
+.slide{
+    min-width: 100%;
+    height: 400px;
+}
 
-    /* Optional: If you have too many links, this makes them horizontally scrollable on mobile */
-    .nav-02-links {
-        gap: 5px;
-        overflow-x: auto;
-        white-space: nowrap;
-        flex-wrap: nowrap;
-        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-    }
-    
-    .nav-02-links::-webkit-scrollbar {
-        display: none; /* Hides scrollbar for a cleaner look */
-    }
+.slide img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-    .nav-02-links a {
-        font-size: 14px;
-        padding: 6px 8px;
+/* buttons */
+.prev, .next{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    font-size: 30px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev{ left: 10px; }
+.next{ right: 10px; }
+
+/* --- 4-Column Cards Grid --- */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    position: relative;
+    margin-top: -120px; /* Overlaps onto the hero banner just like Amazon */
+    z-index: 5;
+    padding: 0 20px;
+}
+
+.category-card {
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 420px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.category-card h2 {
+    font-size: 1.3rem;
+    color: #111;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.card-link {
+    color: #007185;
+    text-decoration: none;
+    font-size: 0.85rem;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+.card-link:hover {
+    color: #c7511f;
+    text-decoration: underline;
+}
+
+/* Feature Layout (Card 1) */
+.feature-image-wrapper {
+    flex-grow: 1;
+    background-color: #f5f5f5;
+}
+
+.gaming-bg {
+    background: linear-gradient(135deg, #b06ab3, #4568dc);
+    height: 100%;
+    border-radius: 4px;
+    position: relative;
+}
+
+/* Multi-Item 2x2 Grid Layout (Cards 2, 3, 4) */
+.grid-2x2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px 10px;
+    flex-grow: 1;
+}
+
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.item-thumb {
+    height: 105px;
+    background-color: #f7f7f8;
+    margin-bottom: 6px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.grid-item span {
+    font-size: 0.75rem;
+    color: #111;
+    line-height: 1.3;
+}
+
+/* Light blue diagonal background used for the Grilling section */
+.blue-grid-bg {
+    background-color: #d1e5f7 !important;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.4) 10px, rgba(255,255,255,0.4) 20px);
+}
+
+/* --- Placeholders to match image assets --- */
+.thumb-jeans { background-color: #e2e8f0; }
+.thumb-tops { background-color: #e8f5e9; }
+.thumb-dresses { background-color: #fdf2e9; }
+.thumb-shoes { background-color: #f5f5f5; }
+
+.thumb-kitchen { background-color: #f0f4f8; }
+.thumb-improvement { background-color: #fbf0f0; }
+.thumb-decor { background-color: #fcf8f2; }
+.thumb-bedding { background-color: #edf2f7; }
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: -40px;
+    }
+    .hero-slider-container {
+        height: 300px;
+    }
+    .hero-left h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero-left {
+        width: 100%;
+    }
+    .hero-right {
+        display: none;
     }
 }
 
@@ -595,3 +725,42 @@ body{
 
 /* navbar 02 responsive */
 
+/* ==========================================================================
+   Responsive Media Queries (Mobile & Tablets)
+   ========================================================================== */
+
+@media screen and (max-width: 576px) {
+    /* Sidebar adjustments for small mobile screens */
+    .sidebar {
+        width: 280px;      /* Slightly narrower so it doesn't swallow the whole screen */
+        left: -280px;      /* Matches the new width for hiding */
+    }
+    
+    .sidebar.active {
+        left: 0;
+    }
+
+    /* Navigation adjustments */
+    .nav-bottom {
+        padding: 10px 15px;
+        gap: 15px;
+    }
+
+    /* Optional: If you have too many links, this makes them horizontally scrollable on mobile */
+    .nav-02-links {
+        gap: 5px;
+        overflow-x: auto;
+        white-space: nowrap;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    }
+    
+    .nav-02-links::-webkit-scrollbar {
+        display: none; /* Hides scrollbar for a cleaner look */
+    }
+
+    .nav-02-links a {
+        font-size: 14px;
+        padding: 6px 8px;
+    }
+}
