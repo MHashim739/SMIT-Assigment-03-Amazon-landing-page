@@ -28,11 +28,6 @@ body,html{
   height: 30px;
   width: 100px;
 }
-/* .add-first{
-  color: #ccc;
-  padding-left: 15px;
-  font-size: 12px;
-} */
 .add-icon{
   display: flex;
   align-items: center;
@@ -199,4 +194,235 @@ body,html{
     font-size: 14px;
     font-weight: 700;
     margin-left: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* nav bar 01 responsive */
+
+/* =========================
+   RESPONSIVE ONLY
+========================= */
+
+/* Laptop / Small Laptop */
+@media (max-width: 1200px){
+
+  .nav-search{
+    width: 500px;
+  }
+
+}
+
+/* Tablet */
+@media (max-width: 992px){
+
+  .navbar{
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .nav-search{
+    width: 100%;
+    order: 5;
+  }
+
+  .card{
+    width: 350px;
+    right: 0;
+  }
+
+}
+
+/* Mobile Large */
+@media (max-width: 768px){
+
+  .navbar{
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .logo{
+    width: 80px;
+    height: 25px;
+  }
+
+  .nav-search{
+    width: 100%;
+    height: 38px;
+  }
+
+  .search-select{
+    width: 55px;
+    font-size: 12px;
+  }
+
+  .search-input{
+    font-size: 13px;
+  }
+
+  .search-icon{
+    width: 40px;
+    font-size: 15px;
+  }
+
+  .nav-line-1{
+    font-size: 10px;
+  }
+
+  .add-second,
+  .lang-text,
+  .cart-text{
+    font-size: 12px;
+  }
+
+  .nav-cart i{
+    font-size: 24px;
+  }
+
+  .cart-count{
+    font-size: 14px;
+    left: 10px;
+  }
+
+  .language-dropdown{
+    width: 160px;
+    right: 0;
+  }
+
+  .card{
+    width: 300px;
+  }
+
+}
+
+/* Mobile Small */
+@media (max-width: 576px){
+
+  .navbar{
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .logo{
+    width: 70px;
+    height: 22px;
+  }
+
+  .nav-search{
+    width: 100%;
+    height: 35px;
+  }
+
+  .search-select{
+    width: 50px;
+    font-size: 11px;
+  }
+
+  .search-input{
+    font-size: 12px;
+    padding-left: 5px;
+  }
+
+  .search-icon{
+    width: 35px;
+    font-size: 14px;
+  }
+
+  .add-second{
+    font-size: 11px;
+  }
+
+  .lang-text{
+    font-size: 11px;
+  }
+
+  .cart-text{
+    display: none;
+  }
+
+  .nav-cart i{
+    font-size: 22px;
+  }
+
+  .cart-count{
+    font-size: 12px;
+    left: 9px;
+  }
+
+  .language-dropdown{
+    width: 150px;
+  }
+
+  .card{
+    width: 95%;
+    right: 2.5%;
+  }
+
+}
+
+/* iPhone SE and Extra Small Devices */
+@media (max-width: 375px){
+
+  .navbar{
+    gap: 5px;
+  }
+
+  .logo{
+    width: 60px;
+  }
+
+  .search-select{
+    width: 45px;
+    font-size: 10px;
+  }
+
+  .search-input{
+    font-size: 11px;
+  }
+
+  .search-icon{
+    width: 32px;
+  }
+
+  .nav-line-1{
+    display: none;
+  }
+
+  .add-second{
+    font-size: 10px;
+  }
+
+  .lang-text{
+    font-size: 10px;
+  }
+
 }
