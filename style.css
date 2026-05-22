@@ -133,6 +133,12 @@ body,html{
     color: #cccccc;
 }
 
+.menu{
+    position: relative;
+    width: 200px;
+    margin: 100px;
+    
+}
 
 #account-link{
     text-decoration: none;
@@ -142,14 +148,15 @@ body,html{
 
 .card{
     width: 400px;
+    z-index: 1;
     background-color: white;
     border: 1px solid #ccc;
     padding: 20px;
 
     position: absolute;
-    top: 40px; 
-     /* left: 0;  */
-     right: 10px;
+    top: 40px;
+    right: 10px;
+    /* left: 0; */
 
     display: none;
 
@@ -163,6 +170,11 @@ body,html{
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.card-content{
+    display: flex;
+    justify-content: space-between;
 }
 
 .card-content{
@@ -664,6 +676,148 @@ body,html{
 
     .item-thumb {
         height: 140px;
+    }
+}
+
+
+
+
+
+
+
+
+/* section 4 cards style */
+
+/* --- Dashboard Grid System --- */
+.rsp-dashboard-container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1400px;
+    width: 100%;
+}
+
+/* --- Card Architecture --- */
+.rsp-card {
+    background-color: #ffffff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 420px;
+}
+
+.rsp-card-title {
+    font-size: 21px;
+    font-weight: 700;
+    color: #0f1111;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+/* --- Placeholder Visuals --- */
+.rsp-image-placeholder {
+    background-color: #f3f3f3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #767676;
+    font-size: 13px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}
+
+.rsp-main-img {
+    height: 180px;
+    width: 100%;
+}
+
+.rsp-thumb-img {
+    height: 80px;
+    width: 100%;
+}
+
+.rsp-quad-img {
+    height: 105px;
+    width: 100%;
+}
+
+/* Specific styling for the tinted backgrounds in Father's Day card */
+.rsp-colored-bg .rsp-image-placeholder {
+    background-color: #d1e5f7; 
+}
+
+/* --- Inner Grids & Labels --- */
+.rsp-featured-item {
+    margin-bottom: 15px;
+}
+
+.rsp-sub-grid {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.rsp-standard-sub-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.rsp-quad-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    row-gap: 15px;
+}
+
+.rsp-sub-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.rsp-item-label {
+    font-size: 12px;
+    color: #0f1111;
+    margin-top: 6px;
+    line-height: 1.4;
+}
+
+/* --- Navigation Link --- */
+.rsp-card-link {
+    font-size: 13px;
+    color: #007185;
+    text-decoration: none;
+    margin-top: auto;
+    display: inline-block;
+    width: fit-content;
+}
+
+.rsp-card-link:hover {
+    color: #c45500;
+    text-decoration: underline;
+}
+
+/* --- Responsive Breakpoints --- */
+
+/* Desktop / Tablets in Landscape */
+@media (max-width: 1100px) {
+    .rsp-dashboard-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Small Tablets / Large Mobile Devices */
+@media (max-width: 650px) {
+    body {
+        padding: 10px;
+    }
+    
+    .rsp-dashboard-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .rsp-card {
+        min-height: auto;
     }
 }
 
