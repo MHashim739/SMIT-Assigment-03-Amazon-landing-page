@@ -821,6 +821,121 @@ body,html{
   }
 }
 
+/* section 5 style */
+
+/* Scope containment */
+.custom-slider-scope {
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: #f3f3f3;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.custom-slider-scope * {
+  box-sizing: border-box;
+}
+
+/* Row Section Block */
+.custom-slider-scope .custom-carousel-zone {
+  background-color: #ffffff;
+  margin-bottom: 25px;
+  padding: 20px;
+  position: relative;
+}
+
+.custom-slider-scope .carousel-main-title {
+  font-size: 21px;
+  font-weight: 700;
+  color: #0f1111;
+  margin: 0 0 15px 5px;
+}
+
+/* Interactive Layout Box */
+.custom-slider-scope .carousel-interactive-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* The Sliding Viewport - Forces horizontal scroll & layout */
+.custom-slider-scope .carousel-track-viewport {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: 15px !important;
+  overflow-x: auto !important;
+  scroll-behavior: smooth !important;
+  scroll-snap-type: x mandatory;
+  width: 100%;
+  padding: 10px 5px;
+}
+
+/* Hide scrollbars cleanly */
+.custom-slider-scope .carousel-track-viewport::-webkit-scrollbar {
+  display: none;
+}
+.custom-slider-scope .carousel-track-viewport {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Individual Item Cards */
+.custom-slider-scope .carousel-item-card {
+  flex: 0 0 auto !important;
+  width: calc(25% - 13px); /* Targets roughly 7 items visible */
+  min-width: 165px;
+  height: 180px;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+}
+
+
+.custom-slider-scope .carousel-item-card img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Slider Controls */
+.custom-slider-scope .carousel-control-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid #d5d9d9;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  border-radius: 4px;
+  width: 40px;
+  height: 45px;
+  cursor: pointer;
+  z-index: 5;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.custom-slider-scope .carousel-control-btn:hover {
+  background-color: #f7fafa;
+  border-color: #a6a6a6;
+}
+
+.custom-slider-scope .btn-prev { left: 0; }
+.custom-slider-scope .btn-next { right: 0; }
+
+/* Responsive adjustments */
+@media (max-width: 1100px) {
+  .custom-slider-scope .carousel-item-card { width: calc(25% - 12px); } /* 4 items */
+}
+@media (max-width: 700px) {
+  .custom-slider-scope .carousel-item-card { width: calc(50% - 10px); } /* 2 items */
+  .custom-slider-scope .carousel-control-btn { display: none; } /* Use touch-swipe on mobile */
+}
+
 
 
 

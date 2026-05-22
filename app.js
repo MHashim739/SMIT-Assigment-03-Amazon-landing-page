@@ -55,3 +55,73 @@ function changeSlide(step){
 setInterval(() => {
     changeSlide(1);
 }, 6000);
+
+// section 5 cards slider js
+
+window.addEventListener('load', function() {
+  // Grab all custom slider instances on the page
+  const sliders = document.querySelectorAll('.custom-slider-scope .custom-carousel-zone');
+  
+  sliders.forEach(slider => {
+    const viewport = slider.querySelector('.carousel-track-viewport');
+    const prevBtn = slider.querySelector('.btn-prev');
+    const nextBtn = slider.querySelector('.btn-next');
+    
+    // Check if the required elements exist in the DOM
+    if (viewport && prevBtn && nextBtn) {
+      
+      /**
+       * Dynamically calculates how far to scroll based on screen size.
+       * If it's a desktop view, it jumps 2 cards forward/backward.
+       * If it fails to read the card size, it falls back to a safe default.
+       */
+      const getScrollStep = () => {
+        const firstCard = viewport.querySelector('.carousel-item-card');
+        
+        if (firstCard && firstCard.offsetWidth > 0) {
+          // Check screen width to adjust step sizes dynamically if needed
+          const isMobile = window.innerWidth <= 768;
+          return isMobile ? firstCard.offsetWidth : firstCard.offsetWidth * 2;
+        }
+        return 350; // Dynamic fallback measure in pixels
+      };
+
+      // Desktop/Mouse Control: Click next to slide forward
+      nextBtn.addEventListener('click', () => {
+        viewport.scrollBy({ 
+          left: getScrollStep(), 
+          behavior: 'smooth' 
+        });
+      });
+
+      // Desktop/Mouse Control: Click prev to slide backward
+      prevBtn.addEventListener('click', () => {
+        viewport.scrollBy({ 
+          left: -getScrollStep(), 
+          behavior: 'smooth' 
+        });
+      });
+      
+      /**
+       * Optional UX polish: Hides navigation buttons if the slider
+       * hits the absolute beginning or end of its horizontal scroll limits.
+       */
+      const toggleButtonVisibility = () => {
+        const scrollLeft = viewport.scrollLeft;
+        const maxScroll = viewport.scrollWidth - viewport.clientWidth;
+        
+        // Hide left button if we are at the very beginning
+        prevBtn.style.visibility = scrollLeft <= 5 ? 'hidden' : 'visible';
+        // Hide right button if we are at the very end
+        nextBtn.style.visibility = scrollLeft >= (maxScroll - 5) ? 'hidden' : 'visible';
+      };
+
+      // Run visibility check immediately on load, and then on every scroll movement
+      toggleButtonVisibility();
+      viewport.addEventListener('scroll', toggleButtonVisibility);
+      
+      // Keep alignment smooth if the browser window changes sizes
+      window.addEventListener('resize', toggleButtonVisibility);
+    }
+  });
+});
