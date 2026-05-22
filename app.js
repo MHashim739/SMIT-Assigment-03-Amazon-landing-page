@@ -125,3 +125,30 @@ window.addEventListener('load', function() {
     }
   });
 });
+
+// esction 6 & 7 slider js
+
+
+
+const slider = document.getElementById("sliderTrack");
+
+let autoScroll;
+
+function startSlider(){
+
+    autoScroll = setInterval(() => {
+
+        slider.scrollLeft += 240;
+
+        // Restart slider
+        if(
+            slider.scrollLeft + slider.clientWidth >= slider.scrollWidth
+        ){
+            slider.scrollLeft = 0;
+        }
+
+    }, 2000);
+
+}
+
+startSlider();

@@ -936,6 +936,333 @@ body,html{
   .custom-slider-scope .carousel-control-btn { display: none; } /* Use touch-swipe on mobile */
 }
 
+/* section 6 & 7 style */
+
+
+/* =========================
+   GLOBAL RESET
+========================= */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.amz-grid-container *,
+.amz-slider-container *{
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body{
+  overflow-x: hidden;
+}
+
+/* =========================
+   SECTION 1 : AMAZON GRID
+========================= */
+
+.amz-grid-container{
+  width: 100%;
+  display: grid;
+
+  /* Responsive Grid */
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+  gap: 20px;
+  padding: 20px;
+  background-color: #eaeded;
+}
+
+.amz-grid-card{
+  width: 100%;
+  background-color: #ffffff;
+
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  min-height: 420px;
+  overflow: hidden;
+}
+
+.amz-grid-title{
+  font-size: 21px;
+  font-weight: 700;
+  color: #0f1111;
+  margin-bottom: 15px;
+  line-height: 1.3;
+}
+
+.amz-grid-quad{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 15px 10px;
+  flex-grow: 1;
+  margin-bottom: 15px;
+}
+
+.amz-grid-item{
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  width: 100%;
+}
+
+.amz-grid-img-wrapper{
+  width: 100%;
+  height: 120px;
+
+  background-color: #f7f8f8;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+  margin-bottom: 6px;
+  border-radius: 6px;
+}
+
+.amz-grid-img-wrapper img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.amz-grid-item span{
+  font-size: 12px;
+  color: #0f1111;
+  line-height: 1.4;
+}
+
+.amz-grid-link{
+  font-size: 13px;
+  color: #007185;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.amz-grid-link:hover{
+  color: #c7511f;
+  text-decoration: underline;
+}
+
+/* =========================
+   SECTION 2 : SLIDER
+========================= */
+
+.amz-slider-container{
+  width: 100%;
+  background: white;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.amz-slider-title{
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #0f1111;
+}
+
+.amz-slider-track{
+  width: 100%;
+  display: flex;
+  gap: 20px;
+
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: none;
+}
+
+.amz-slider-track::-webkit-scrollbar{
+  display: none;
+}
+
+.amz-slider-item{
+  min-width: 220px;
+  height: 220px;
+
+  flex-shrink: 0;
+  background: #f7f7f7;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.amz-slider-item img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* =====================================================
+   RESPONSIVE DESIGN
+===================================================== */
+
+/* =========================
+   LARGE TABLETS & FOLDS
+========================= */
+@media (max-width: 1024px){
+
+  .amz-grid-container{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .amz-slider-item{
+    min-width: 200px;
+    height: 200px;
+  }
+
+  .amz-slider-title{
+    font-size: 20px;
+  }
+}
+
+/* =========================
+   TABLETS
+========================= */
+@media (max-width: 768px){
+
+  .amz-grid-container{
+    grid-template-columns: repeat(2, 1fr);
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .amz-grid-card{
+    min-height: auto;
+    padding: 16px;
+  }
+
+  .amz-grid-title{
+    font-size: 19px;
+  }
+
+  .amz-grid-img-wrapper{
+    height: 110px;
+  }
+
+  .amz-slider-container{
+    padding: 15px;
+  }
+
+  .amz-slider-title{
+    font-size: 18px;
+  }
+
+  .amz-slider-track{
+    gap: 15px;
+  }
+
+  .amz-slider-item{
+    min-width: 180px;
+    height: 180px;
+  }
+}
+
+/* =========================
+   MOBILE DEVICES
+========================= */
+@media (max-width: 576px){
+
+  .amz-grid-container{
+    grid-template-columns: 1fr;
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .amz-grid-card{
+    padding: 14px;
+  }
+
+  .amz-grid-title{
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .amz-grid-quad{
+    gap: 12px 8px;
+  }
+
+  .amz-grid-img-wrapper{
+    height: 100px;
+  }
+
+  .amz-grid-item span{
+    font-size: 11px;
+  }
+
+  .amz-grid-link{
+    font-size: 12px;
+  }
+
+  .amz-slider-container{
+    padding: 12px;
+  }
+
+  .amz-slider-title{
+    font-size: 17px;
+    margin-bottom: 15px;
+  }
+
+  .amz-slider-track{
+    gap: 12px;
+  }
+
+  .amz-slider-item{
+    min-width: 150px;
+    height: 150px;
+    border-radius: 8px;
+  }
+
+  .amz-slider-item img{
+    border-radius: 8px;
+  }
+}
+
+/* =========================
+   EXTRA SMALL DEVICES
+   iPhone SE etc
+========================= */
+@media (max-width: 375px){
+
+  .amz-grid-container{
+    padding: 10px;
+  }
+
+  .amz-grid-card{
+    padding: 12px;
+  }
+
+  .amz-grid-title{
+    font-size: 16px;
+  }
+
+  .amz-grid-img-wrapper{
+    height: 90px;
+  }
+
+  .amz-slider-title{
+    font-size: 16px;
+  }
+
+  .amz-slider-item{
+    min-width: 130px;
+    height: 130px;
+  }
+}
 
 
 
