@@ -688,137 +688,137 @@ body,html{
 
 /* section 4 cards style */
 
-/* --- Dashboard Grid System --- */
-.rsp-dashboard-container {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(250px, 1fr));
-    gap: 20px;
-    max-width: 1400px;
-    width: 100%;
+/* Container holding all cards */
+.promo-board-container {
+  display: flex;
+  gap: 20px;
+  background-color: #eaeded; /* Amazon light gray page background */
+  padding: 20px;
+  font-family: "Amazon Ember", Arial, sans-serif;
+  box-sizing: border-box;
+  flex-wrap: wrap;
 }
 
-/* --- Card Architecture --- */
-.rsp-card {
-    background-color: #ffffff;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 420px;
+/* Individual card module */
+.promo-deck-card {
+  background-color: #ffffff;
+  flex: 1;
+  min-width: 260px;
+  max-width: 360px;
+  padding: 20px 20px 15px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
 }
 
-.rsp-card-title {
-    font-size: 21px;
-    font-weight: 700;
-    color: #0f1111;
-    margin-bottom: 12px;
-    line-height: 1.3;
+/* Titles */
+.promo-deck-title {
+  font-size: 21px;
+  font-weight: 700;
+  color: #0f1111;
+  margin: 0 0 10px 0;
+  line-height: 1.3;
 }
 
-/* --- Placeholder Visuals --- */
-.rsp-image-placeholder {
-    background-color: #f3f3f3;
-    display: flex;
-    align-items: center;
+/* Labels below image assets */
+.promo-item-label {
+  font-size: 12px;
+  color: #0f1111;
+  margin-top: 6px;
+  display: block;
+}
+
+/* Footer Hyperlinks */
+.promo-action-link {
+  font-size: 13px;
+  color: #007185;
+  text-decoration: none;
+  margin-top: 15px;
+  display: inline-block;
+  align-self: flex-start;
+}
+
+.promo-action-link:hover {
+  color: #c7511f;
+  text-decoration: underline;
+}
+
+/* Layout variation A: Large hero banner + 3 small thumbnails below */
+.promo-hero-wrapper {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.promo-hero-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.promo-grid-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.promo-grid-thumb img {
+  width: 100%;
+  height: 80px;
+  object-fit: contain;
+  background-color: #f7f7f7;
+}
+
+/* Layout variation B: 2x2 Grid configurations */
+.promo-quad-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 15px 10px;
+}
+
+.promo-quad-item {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Specifically for images that fill their grid slots completely */
+.promo-fill-img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+}
+
+/* Specifically for items with light-blue padded boxes (like Father's Day deals) */
+.promo-image-bg-box {
+  background-color: #dff0ff; /* Light blue accent color tint */
+  height: 115px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.promo-image-bg-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Responsive adjustments for smaller windows */
+@media (max-width: 900px) {
+  .promo-board-container {
     justify-content: center;
-    color: #767676;
-    font-size: 13px;
-    overflow: hidden;
-    background-size: cover;
-    background-position: center;
+  }
+  .promo-deck-card {
+    max-width: 45%;
+  }
 }
 
-.rsp-main-img {
-    height: 180px;
-    width: 100%;
-}
-
-.rsp-thumb-img {
-    height: 80px;
-    width: 100%;
-}
-
-.rsp-quad-img {
-    height: 105px;
-    width: 100%;
-}
-
-/* Specific styling for the tinted backgrounds in Father's Day card */
-.rsp-colored-bg .rsp-image-placeholder {
-    background-color: #d1e5f7; 
-}
-
-/* --- Inner Grids & Labels --- */
-.rsp-featured-item {
-    margin-bottom: 15px;
-}
-
-.rsp-sub-grid {
-    display: grid;
-    gap: 10px;
-    margin-bottom: 15px;
-}
-
-.rsp-standard-sub-grid {
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.rsp-quad-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, auto);
-    row-gap: 15px;
-}
-
-.rsp-sub-item {
-    display: flex;
-    flex-direction: column;
-}
-
-.rsp-item-label {
-    font-size: 12px;
-    color: #0f1111;
-    margin-top: 6px;
-    line-height: 1.4;
-}
-
-/* --- Navigation Link --- */
-.rsp-card-link {
-    font-size: 13px;
-    color: #007185;
-    text-decoration: none;
-    margin-top: auto;
-    display: inline-block;
-    width: fit-content;
-}
-
-.rsp-card-link:hover {
-    color: #c45500;
-    text-decoration: underline;
-}
-
-/* --- Responsive Breakpoints --- */
-
-/* Desktop / Tablets in Landscape */
-@media (max-width: 1100px) {
-    .rsp-dashboard-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* Small Tablets / Large Mobile Devices */
-@media (max-width: 650px) {
-    body {
-        padding: 10px;
-    }
-    
-    .rsp-dashboard-container {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    
-    .rsp-card {
-        min-height: auto;
-    }
+@media (max-width: 600px) {
+  .promo-deck-card {
+    max-width: 100%;
+  }
 }
 
 
