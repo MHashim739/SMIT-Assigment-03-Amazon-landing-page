@@ -152,3 +152,31 @@ function startSlider(){
 }
 
 startSlider();
+
+// section 8 & 9 js
+
+const track = document.querySelector(".custom-shopper-slider-track");
+
+const next = document.querySelector(".next-btn");
+
+const prev = document.querySelector(".prev-btn");
+
+/* NEXT BUTTON */
+next.addEventListener("click", () => {
+
+  track.scrollBy({
+    left: 300,
+    behavior: "smooth"
+  });
+
+});
+
+/* PREVIOUS BUTTON */
+prev.addEventListener("click", () => {
+
+  track.scrollBy({
+    left: -300,
+    behavior: "smooth"
+  });
+
+});
