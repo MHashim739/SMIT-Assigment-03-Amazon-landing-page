@@ -320,78 +320,104 @@ body,html{
 
 /* section 3 slider styel */
 
+/* --- Base Styles (Your Original Styles with Flex/Grid Fixes) --- */
 .landing-container {
     max-width: 2000px;
     width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
-.slider{
+
+/* =========================
+   SLIDER
+========================= */
+.slider {
     position: relative;
     width: 100%;
     height: 400px;
     overflow: hidden;
 }
 
-.slides{
+.slides {
     display: flex;
-    top: 20%;
+    position: relative;
+    top: 0;
     width: 100%;
     height: 100%;
     transition: transform 0.5s ease-in-out;
 }
 
-.slide{
+.slide {
     min-width: 100%;
-    height: 400px;
+    height: 100%;
 }
 
-.slide img{
+.slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-/* buttons */
-.prev, .next{
+/* =========================
+   BUTTONS
+========================= */
+.prev,
+.next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background: rgba(0,0,0,0.5);
     color: white;
     border: none;
-    font-size: 30px;
-    padding: 10px;
+    font-size: 24px;
+    padding: 8px 12px;
     cursor: pointer;
+    z-index: 10;
+    border-radius: 4px;
 }
 
-.prev{ left: 10px; }
-.next{ right: 10px; }
+.prev {
+    left: 10px;
+}
 
-/* --- 4-Column Cards Grid --- */
+.next {
+    right: 10px;
+}
+
+/* =========================
+   CARDS GRID
+========================= */
 .cards-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 15px;
     position: relative;
-    margin-top: -120px; /* Overlaps onto the hero banner just like Amazon */
+    margin-top: -20px;
     z-index: 5;
-    padding: 0 20px;
+    padding: 0 15px 20px;
+    box-sizing: border-box;
 }
 
 .category-card {
     background-color: white;
-    padding: 20px;
+    padding: 16px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 420px;
+    min-height: 380px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    border-radius: 6px;
 }
 
 .category-card h2 {
-    font-size: 1.3rem;
+    font-size: 1.15rem;
     color: #111;
-    margin-bottom: 15px;
+    margin-top: 0;
+    margin-bottom: 12px;
     font-weight: 700;
+    line-height: 1.4;
 }
 
 .card-link {
@@ -407,10 +433,15 @@ body,html{
     text-decoration: underline;
 }
 
-/* Feature Layout (Card 1) */
+/* =========================
+   FEATURE IMAGE
+========================= */
 .feature-image-wrapper {
     flex-grow: 1;
     background-color: #f5f5f5;
+    min-height: 150px;
+    border-radius: 4px;
+    overflow: hidden;
 }
 
 .gaming-bg {
@@ -420,11 +451,13 @@ body,html{
     position: relative;
 }
 
-/* Multi-Item 2x2 Grid Layout (Cards 2, 3, 4) */
+/* =========================
+   2x2 GRID
+========================= */
 .grid-2x2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px 10px;
+    gap: 12px 10px;
     flex-grow: 1;
 }
 
@@ -435,12 +468,13 @@ body,html{
 }
 
 .item-thumb {
-    height: 105px;
+    height: 95px;
     background-color: #f7f7f8;
     margin-bottom: 6px;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    border-radius: 4px;
 }
 
 .grid-item span {
@@ -449,46 +483,187 @@ body,html{
     line-height: 1.3;
 }
 
-/* Light blue diagonal background used for the Grilling section */
+/* =========================
+   BACKGROUNDS
+========================= */
 .blue-grid-bg {
     background-color: #d1e5f7 !important;
-    background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.4) 10px, rgba(255,255,255,0.4) 20px);
+    background-image: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(255,255,255,0.4) 10px,
+        rgba(255,255,255,0.4) 20px
+    );
 }
 
-/* --- Placeholders to match image assets --- */
+/* =========================
+   PLACEHOLDERS
+========================= */
 .thumb-jeans { background-color: #e2e8f0; }
 .thumb-tops { background-color: #e8f5e9; }
 .thumb-dresses { background-color: #fdf2e9; }
 .thumb-shoes { background-color: #f5f5f5; }
-
 .thumb-kitchen { background-color: #f0f4f8; }
 .thumb-improvement { background-color: #fbf0f0; }
 .thumb-decor { background-color: #fcf8f2; }
 .thumb-bedding { background-color: #edf2f7; }
 
-/* Responsive Adjustments */
-@media (max-width: 1024px) {
+/* =====================================================
+   iPhone SE / Small Phones
+===================================================== */
+@media screen and (max-width: 375px) {
+
+    .slider {
+        height: 220px;
+    }
+
     .cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-        margin-top: -40px;
+        grid-template-columns: 1fr;
+        margin-top: 0;
+        padding: 10px;
     }
-    .hero-slider-container {
-        height: 300px;
+
+    .category-card {
+        min-height: auto;
+        padding: 14px;
     }
-    .hero-left h1 {
-        font-size: 2.2rem;
+
+    .category-card h2 {
+        font-size: 1rem;
+    }
+
+    .item-thumb {
+        height: 80px;
+    }
+
+    .grid-item span {
+        font-size: 0.7rem;
+    }
+
+    .prev,
+    .next {
+        font-size: 18px;
+        padding: 6px 10px;
     }
 }
 
-@media (max-width: 600px) {
+/* =====================================================
+   iPhone XR / iPhone 12 Pro / Pixel / Galaxy Phones
+===================================================== */
+@media screen and (min-width: 376px) and (max-width: 767px) {
+
+    .slider {
+        height: 260px;
+    }
+
     .cards-grid {
         grid-template-columns: 1fr;
+        margin-top: -10px;
     }
-    .hero-left {
-        width: 100%;
+
+    .category-card {
+        min-height: auto;
     }
-    .hero-right {
-        display: none;
+
+    .item-thumb {
+        height: 90px;
+    }
+}
+
+/* =====================================================
+   Tablets
+   iPad Mini / Air / Pro / Surface Pro
+===================================================== */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    .slider {
+        height: 320px;
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-top: -40px;
+        padding: 0 20px 30px;
+    }
+
+    .category-card {
+        min-height: 400px;
+    }
+
+    .item-thumb {
+        height: 110px;
+    }
+
+    .category-card h2 {
+        font-size: 1.2rem;
+    }
+}
+
+/* =====================================================
+   Fold Devices
+   Galaxy Fold / Zenbook Fold / Surface Duo
+===================================================== */
+@media screen and (min-width: 540px) and (max-width: 900px) {
+
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .slider {
+        height: 300px;
+    }
+}
+
+/* =====================================================
+   Large Devices / Nest Hub / Desktop
+===================================================== */
+@media screen and (min-width: 1025px) {
+
+    .slider {
+        height: 400px;
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        margin-top: -120px;
+        padding: 0 20px 40px;
+    }
+
+    .category-card {
+        min-height: 420px;
+    }
+
+    .item-thumb {
+        height: 120px;
+    }
+}
+
+/* =====================================================
+   Nest Hub Max / Ultra Wide Screens
+===================================================== */
+@media screen and (min-width: 1400px) {
+
+    .landing-container {
+        max-width: 1600px;
+    }
+
+    .slider {
+        height: 500px;
+    }
+
+    .cards-grid {
+        gap: 25px;
+    }
+
+    .category-card {
+        min-height: 450px;
+    }
+
+    .item-thumb {
+        height: 140px;
     }
 }
 
@@ -764,3 +939,6 @@ body,html{
         padding: 6px 8px;
     }
 }
+
+/* section 3 slider responsive */
+
