@@ -1647,8 +1647,167 @@ img{
   }
 }
 
+/* section 11 style */
 
 
+/* Base container enclosing section 11 */
+.sec-11-layout-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #eaeded; /* Standard e-commerce neutral background */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.sec-11-section-title, 
+.sec-11-box-title {
+  font-size: 21px;
+  font-weight: 700;
+  color: #0F1111;
+  margin-bottom: 15px;
+}
+
+/* ======================================= */
+/* 1st SECTION STYLING: HORIZONTAL SLIDER  */
+/* ======================================= */
+.sec-11-slider-wrapper {
+  background: #ffffff;
+  padding: 20px;
+}
+
+.sec-11-slider-relative-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.sec-11-card-slider {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+.sec-11-card-slider::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome/Safari */
+}
+
+.sec-11-slider-item {
+  flex: 0 0 auto;
+  width: 150px;
+}
+
+.sec-11-slider-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  background-color: #f7f7f7;
+}
+
+.sec-11-item-name {
+  font-size: 13px;
+  color: #007185;
+  margin-top: 6px;
+  cursor: pointer;
+}
+
+/* Slider Controls */
+.sec-11-slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #d5d9d9;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  width: 40px;
+  height: 45px;
+  border-radius: 4px;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.sec-11-prev-btn { left: 10px; }
+.sec-11-next-btn { right: 10px; }
+
+
+/* ======================================= */
+/* 2nd SECTION STYLING: CARDS GRID BOX     */
+/* ======================================= */
+.sec-11-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 horizontal dashboard boxes */
+  gap: 20px;
+}
+
+.sec-11-grid-box {
+  background: #ffffff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 2x2 grid framework for inside the boxes */
+.sec-11-box-content-4col {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  flex-grow: 1;
+}
+
+.sec-11-sub-item {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.sec-11-sub-item img {
+  width: 100%;
+  height: 105px;
+  object-fit: cover;
+  background-color: #f7f7f7;
+}
+
+.sec-11-sub-item span {
+  font-size: 12px;
+  color: #0F1111;
+  margin-top: 4px;
+}
+
+
+/* ======================================= */
+/* RESPONSIVE MEDIA QUERIES                --> */
+/* ======================================= */
+
+/* Responsive adaptations for Desktop & Large Tablets */
+@media (max-width: 1024px) {
+  .sec-11-card-grid {
+    grid-template-columns: repeat(2, 1fr); /* Becomes 2x2 grid cards */
+  }
+}
+
+/* Responsive adaptations for Mobile Devices */
+@media (max-width: 600px) {
+  .sec-11-card-grid {
+    grid-template-columns: 1fr; /* Stack boxes vertically */
+  }
+  
+  .sec-11-slider-btn {
+    display: none; /* Rely on natural touch swipe on small mobile viewports */
+  }
+  
+  .sec-11-slider-item {
+    width: 120px;
+  }
+  
+  .sec-11-slider-item img {
+    height: 160px;
+  }
+}
 
 
 

@@ -180,3 +180,48 @@ prev.addEventListener("click", () => {
   });
 
 });
+
+
+// esc tion 11 js
+
+const sec11Slider = document.getElementById('sec11CardSlider');
+const sec11PrevBtn = document.getElementById('sec11PrevBtn');
+const sec11NextBtn = document.getElementById('sec11NextBtn');
+
+// Calculate custom slide skip steps dynamically based on current viewport size
+const getScrollStep = () => sec11Slider.clientWidth * 0.75;
+
+sec11NextBtn.addEventListener('click', () => {
+  sec11Slider.scrollLeft += getScrollStep();
+});
+
+sec11PrevBtn.addEventListener('click', () => {
+  sec11Slider.scrollLeft -= getScrollStep();
+});
+
+// Real-time listener checking track boundaries to hide inactive navigation buttons
+sec11Slider.addEventListener('scroll', () => {
+  // Check start boundary
+  if (sec11Slider.scrollLeft <= 0) {
+    sec11PrevBtn.style.opacity = '0';
+    sec11PrevBtn.style.pointerEvents = 'none';
+  } else {
+    sec11PrevBtn.style.opacity = '1';
+    sec11PrevBtn.style.pointerEvents = 'auto';
+  }
+
+  // Check end boundary
+  if (sec11Slider.scrollLeft + sec11Slider.clientWidth >= sec11Slider.scrollWidth - 5) {
+    sec11NextBtn.style.opacity = '0';
+    sec11NextBtn.style.pointerEvents = 'none';
+  } else {
+    sec11NextBtn.style.opacity = '1';
+    sec11NextBtn.style.pointerEvents = 'auto';
+  }
+});
+
+// Configure initial UI render settings
+window.addEventListener('load', () => {
+  sec11PrevBtn.style.opacity = '0';
+  sec11PrevBtn.style.pointerEvents = 'none';
+});
