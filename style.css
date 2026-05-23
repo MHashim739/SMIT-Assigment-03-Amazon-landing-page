@@ -1809,6 +1809,134 @@ img{
   }
 }
 
+/* esction 12 style */
+
+.container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* --- SECTION 1: Product Slider --- */
+        .slider-section {
+            background-color: #ffffff;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .slider-title {
+            font-size: 21px;
+            font-weight: 700;
+            color: #111111;
+            margin-bottom: 15px;
+        }
+
+        /* Responsive horizontal scroll container */
+    .product-slider {
+    display: flex;
+    gap: 20px;
+    overflow-x: hidden;   /* important */
+    scroll-behavior: smooth;
+    padding-bottom: 15px;
+}
+
+        .product-slider::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .product-slider::-webkit-scrollbar-thumb {
+            background-color: #cccccc;
+            border-radius: 4px;
+        }
+
+        .product-card {
+            flex: 0 0 auto;
+            width: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .product-card:hover {
+            transform: scale(1.03);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            max-height: 160px;
+            object-fit: contain;
+        }
+
+        /* --- SECTION 2: Sign In / Recommendations --- */
+        .recommendations-section {
+            background-color: #ffffff;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            padding: 35px 20px;
+            text-align: center;
+        }
+
+        .rec-text {
+            font-size: 13px;
+            color: #111111;
+            margin-bottom: 8px;
+            font-weight: 400;
+        }
+
+        .sign-in-btn {
+            display: inline-block;
+            background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+            border: 1px solid;
+            border-color: #a88734 #9c7e31 #846a29;
+            color: #111;
+            width: 100%;
+            max-width: 230px;
+            padding: 6px 0;
+            font-size: 12px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 3px;
+            box-shadow: 0 1px 0 rgba(255,255,255,.4) inset;
+            cursor: pointer;
+            margin-bottom: 8px;
+        }
+
+        .sign-in-btn:hover {
+            background: linear-gradient(to bottom, #f5d78e, #eeb933);
+            border-color: #a28230 #94772e #7d6426;
+        }
+
+        .new-customer-text {
+            font-size: 11px;
+            color: #333333;
+        }
+
+        .new-customer-text a {
+            color: #0066c0;
+            text-decoration: none;
+        }
+
+        .new-customer-text a:hover {
+            color: #c45500;
+            text-decoration: underline;
+        }
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 768px) {
+            .product-card {
+                width: 130px;
+            }
+            .product-card img {
+                max-height: 130px;
+            }
+            .slider-title {
+                font-size: 18px;
+            }
+        }
+
 
 
 

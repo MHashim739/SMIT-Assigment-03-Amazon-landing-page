@@ -225,3 +225,33 @@ window.addEventListener('load', () => {
   sec11PrevBtn.style.opacity = '0';
   sec11PrevBtn.style.pointerEvents = 'none';
 });
+
+// esction 12 js
+
+window.addEventListener("load", function () {
+
+    const slider = document.querySelector(".product-slider");
+    const cards = document.querySelectorAll(".product-card");
+
+    let index = 0;
+
+    function getCardWidth() {
+        return cards[0].offsetWidth + 20; // card width + gap
+    }
+
+    setInterval(() => {
+
+        index++;
+
+        if (index >= cards.length) {
+            index = 0;
+        }
+
+        slider.scrollTo({
+            left: index * getCardWidth(),
+            behavior: "smooth"
+        });
+
+    }, 2000);
+
+});
