@@ -1652,7 +1652,7 @@ img{
 
 /* Base container enclosing section 11 */
 .sec-11-layout-container {
-  max-width: 1240px;
+  /* max-width: 1240px; */
   margin: 0 auto;
   padding: 20px;
   background-color: #eaeded; /* Standard e-commerce neutral background */
